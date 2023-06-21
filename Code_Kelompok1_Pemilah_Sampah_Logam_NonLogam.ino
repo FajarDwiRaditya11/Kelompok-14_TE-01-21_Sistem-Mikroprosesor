@@ -28,7 +28,7 @@ void setup() {
   myservo.write(awal);
 }
 void loop() {
-  digitalWrite (trigPin, LOW); //put your main code here, to run repeatedly:
+  digitalWrite (trigPin, LOW);
   delayMicroseconds (2);
   digitalWrite (trigPin, HIGH);
   delayMicroseconds (10);
@@ -52,11 +52,11 @@ void loop() {
     sensorvalue = digitalRead(proximityPin); //start program sensor proximity
 
     if (sensorvalue == LOW) {
-      Serial.println("Object detected");
+      Serial.println("Terdeteksi sampah logam");
       myservo.write(logam);//posisi servo pada 0 derajat
       lcd.setCursor (2, 1);
       lcd.print("SAMPAH LOGAM");
-      delay(3000); //Delay
+      delay(3000);
       lcd.clear ();
       myservo.write(awal);
       delay(250);
@@ -64,8 +64,8 @@ void loop() {
       lcd.print("TERIMA KASIH");
       delay (2000);
       lcd.clear();
-    }else{
-      Serial.println("No object");
+    } else {
+      Serial.println("Terdeteksi sampah nonlogam");
       myservo.write(nonlogam); //Posisi servo pada 72 derajat
       lcd.setCursor (0, 1);
       lcd.print("SAMPAH NON LOGAM");
